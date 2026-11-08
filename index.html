@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiju & Godzilla Ultimate Vault - Chronologie 1954 à 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        atomic: {
+                            bg: '#0a0c0e',
+                            panel: '#12161b',
+                            card: '#191f27',
+                            border: '#29323d',
+                            green: '#00FF66',
+                            orange: '#FF4500',
+                            red: '#FF2A2A',
+                            yellow: '#FFC800',
+                            muted: '#8a95a5'
+                        }
+                    },
+                    boxShadow: {
+                        'atomic-glow': '0 0 20px rgba(0, 255, 102, 0.35)',
+                        'magma-glow': '0 0 20px rgba(255, 69, 0, 0.35)',
+                        'heavy': '0 10px 30px -5px rgba(0, 0, 0, 0.95)'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0c0e;
+            color: #d1d5db;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.07) 0%, transparent 70%),
+                radial-gradient(circle at 85% 75%, rgba(255, 69, 0, 0.06) 0%, transparent 60%);
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .atomic-card-style {
+            background: linear-gradient(145deg, #191f27 0%, #11151a 100%);
+            border: 1px solid #29323d;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .atomic-card-style:hover {
+            border-color: rgba(0, 255, 102, 0.6);
+            box-shadow: 0 0 24px rgba(0, 255, 102, 0.25);
+            transform: translateY(-3px);
+        }
+        @keyframes atomicPulse {
+            0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 6px rgba(0, 255, 102, 0.5)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.9)); }
+        }
+        .atomic-pulse {
+            animation: atomicPulse 3s infinite ease-in-out;
+        }
+        @keyframes screenShake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-1px, 1px); }
+            50% { transform: translate(1px, -1px); }
+            75% { transform: translate(-1px, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+        .rumble-hover:hover {
+            animation: screenShake 0.16s infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0c0e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #29323d;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 255, 102, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00FF66;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-200 selection:bg-atomic-green selection:text-black">
+
+    <!-- Ambient Glows -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-atomic-green opacity-5 rounded-full blur-[180px] pointer-events-none"></div>
+    <div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-atomic-orange opacity-5 rounded-full blur-[200px] pointer-events-none"></div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-atomic-green/10 border border-atomic-green/30 text-atomic-green text-xs font-orbitron tracking-widest uppercase mb-3 shadow-atomic-glow atomic-pulse">
+                <i class="fa-solid fa-radiation"></i> Archivage Chronologique Ultime &bull; 1954 - 2026
+            </div>
+            <h1 class="font-orbitron text-3xl sm:text-5xl md:text-6xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-atomic-green via-slate-100 to-atomic-orange mb-3 drop-shadow-lg">
+                KAIJU & GODZILLA VAULT
+            </h1>
+            <p class="text-slate-400 max-w-3xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed">
+                Base de données exhaustive répertoriant **films**, **séries**, **crossovers TV (Fuji TV, Zone Fighter)** et **inédits japonais** du 1er Godzilla (1954) jusqu'au tout nouveau <span class="text-atomic-green font-bold">Godzilla Minus Zero (Sortie 04/11/2026)</span>.
+            </p>
+        </header>
+
+        <!-- Main Category Navigation: FILMS vs SÉRIES -->
+        <div class="flex justify-center mb-6">
+            <div class="inline-flex p-1.5 bg-atomic-panel border border-atomic-border rounded-2xl shadow-heavy">
+                <button id="tabFilmsBtn" onclick="setActiveMainTab('film')" class="px-6 sm:px-10 py-3 rounded-xl font-orbitron text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 bg-atomic-green text-black shadow-atomic-glow flex items-center gap-2">
+                    <i class="fa-solid fa-film"></i> FILMS (<span id="countFilmsHeader">0</span>)
+                </button>
+                <button id="tabSeriesBtn" onclick="setActiveMainTab('series')" class="px-6 sm:px-10 py-3 rounded-xl font-orbitron text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 text-slate-400 hover:text-slate-200 flex items-center gap-2">
+                    <i class="fa-solid fa-tv"></i> SÉRIES TV (<span id="countSeriesHeader">0</span>)
+                </button>
+            </div>
+        </div>
+
+        <!-- Controls Box -->
+        <div class="bg-atomic-panel border border-atomic-border rounded-2xl p-5 sm:p-6 mb-8 shadow-heavy">
+            
+            <!-- Row 1: Search + Sub-Category + Order Sort -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-5">
+                <!-- Search Input -->
+                <div class="lg:col-span-6 relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-atomic-green">
+                        <i class="fa-solid fa-magnifying-glass text-base"></i>
+                    </div>
+                    <input type="text" id="searchInput" 
+                        placeholder="Rechercher (Minus Zero, Minus One, Shin, 1954, Gamera, Fuji TV...)" 
+                        class="w-full pl-11 pr-10 py-3 bg-atomic-bg border border-atomic-border rounded-xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-atomic-green focus:ring-1 focus:ring-atomic-green transition-all text-xs sm:text-sm">
+                    <button id="clearSearchBtn" class="hidden absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-atomic-orange">
+                        <i class="fa-solid fa-xmark text-base"></i>
+                    </button>
+                </div>
+
+                <!-- Sub-Category Filter -->
+                <div class="lg:col-span-4 flex rounded-xl bg-atomic-bg p-1 border border-atomic-border">
+                    <button onclick="setSubCat('all')" id="subBtnAll" class="flex-1 py-2 px-1.5 rounded-lg text-xs font-orbitron font-bold transition-all bg-atomic-green text-black shadow-atomic-glow">
+                        TOUT
+                    </button>
+                    <button onclick="setSubCat('godzilla')" id="subBtnGodzilla" class="flex-1 py-2 px-1.5 rounded-lg text-xs font-orbitron transition-all text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-radiation mr-1"></i> Godzilla
+                    </button>
+                    <button onclick="setSubCat('kaiju')" id="subBtnKaiju" class="flex-1 py-2 px-1.5 rounded-lg text-xs font-orbitron transition-all text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-dragon mr-1"></i> Autres Kaiju
+                    </button>
+                </div>
+
+                <!-- Sort Order Toggle -->
+                <div class="lg:col-span-2">
+                    <button id="sortOrderBtn" onclick="toggleSortOrder()" class="w-full py-3 px-3 bg-atomic-card hover:bg-atomic-border border border-atomic-border rounded-xl font-orbitron text-xs text-atomic-green flex items-center justify-center gap-2 transition-all">
+                        <i id="sortIcon" class="fa-solid fa-arrow-down-1-9"></i> <span id="sortText">1954 &rarr; 2026</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Row 2: Era Filters -->
+            <div class="flex flex-wrap gap-2 items-center justify-center lg:justify-start pt-3 border-t border-atomic-border mb-3">
+                <span class="text-xs font-orbitron text-slate-500 mr-2 uppercase tracking-wider">Ère / Période :</span>
+                <button data-era="all" class="era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-green text-black font-bold shadow-atomic-glow">
+                    Toutes
+                </button>
+                <button data-era="showa" class="era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:border-atomic-green hover:text-atomic-green">
+                    Shōwa (1954-1975)
+                </button>
+                <button data-era="heisei" class="era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:border-atomic-green hover:text-atomic-green">
+                    Heisei (1984-1999)
+                </button>
+                <button data-era="millennium" class="era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:border-atomic-green hover:text-atomic-green">
+                    Millennium (1999-2004)
+                </button>
+                <button data-era="reiwa" class="era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:border-atomic-green hover:text-atomic-green">
+                    Reiwa / Japon (2016+)
+                </button>
+                <button data-era="monsterverse" class="era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:border-atomic-green hover:text-atomic-green">
+                    MonsterVerse US
+                </button>
+            </div>
+
+            <!-- Row 3: Availability Filters -->
+            <div class="flex flex-wrap gap-2 items-center justify-center lg:justify-start pt-3 border-t border-atomic-border">
+                <span class="text-xs font-orbitron text-slate-500 mr-2 uppercase tracking-wider">Disponibilité :</span>
+                <button data-lang="all" class="lang-filter-btn px-3 py-1 rounded-md text-[11px] font-orbitron transition-all bg-atomic-orange text-black font-bold shadow-magma-glow">
+                    Tous formats
+                </button>
+                <button data-lang="vf" class="lang-filter-btn px-3 py-1 rounded-md text-[11px] font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:text-white">
+                    VF / Multilingue
+                </button>
+                <button data-lang="vostfr" class="lang-filter-btn px-3 py-1 rounded-md text-[11px] font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:text-white">
+                    VOSTFR
+                </button>
+                <button data-lang="vo" class="lang-filter-btn px-3 py-1 rounded-md text-[11px] font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:text-white">
+                    VO Japonaise / Inédit
+                </button>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="flex justify-between items-center mb-6 px-1">
+            <p class="text-xs sm:text-sm font-orbitron text-slate-400">
+                AFFICHAGE CHRONOLOGIQUE : <span id="resultsCountText" class="text-atomic-green font-bold">0</span> œuvres répertoriées
+            </p>
+            <div class="text-[11px] text-slate-500 font-orbitron hidden sm:block">
+                <i class="fa-solid fa-clock-rotate-left mr-1"></i> CLASSEMENT CHRONOLOGIQUE STRICT
+            </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-16 bg-atomic-panel border border-atomic-border rounded-2xl">
+            <div class="text-5xl text-atomic-orange mb-3">
+                <i class="fa-solid fa-radiation animate-spin"></i>
+            </div>
+            <h3 class="font-orbitron text-lg text-slate-200 mb-1">AUCUNE ŒUVRE TROUVÉE</h3>
+            <p class="text-slate-400 text-xs max-w-sm mx-auto">
+                Modifiez vos termes de recherche ou réinitialisez les filtres pour réafficher la chronologie complète.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-20 border-t border-atomic-border pt-8 pb-12 text-center text-slate-500 text-xs font-orbitron">
+            <p>ULTIMATE KAIJU & GODZILLA VAULT &bull; TOHO CO., LTD., DAIEI, TSUBURAYA PROD., FUJI TV & MONSTERVERSE</p>
+        </footer>
+
+    </div>
+
+    <!-- Modal Detail -->
+    <div id="detailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="modalContent" class="bg-atomic-panel w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col border border-atomic-green/40">
+            <!-- Modal Header -->
+            <div class="relative h-48 sm:h-56 bg-gradient-to-r from-atomic-bg via-atomic-panel to-atomic-card flex items-end p-6 border-b border-atomic-border">
+                <div class="absolute inset-0 bg-gradient-to-t from-atomic-panel via-transparent to-transparent"></div>
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-atomic-bg text-slate-300 hover:text-atomic-green hover:bg-atomic-border flex items-center justify-center transition-all border border-atomic-border">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-2 mb-2 flex-wrap">
+                        <span id="mBadgeCategory" class="px-2.5 py-0.5 rounded-full text-[10px] font-orbitron uppercase tracking-wider bg-atomic-green/20 text-atomic-green border border-atomic-green/40"></span>
+                        <span id="mBadgeEra" class="px-2.5 py-0.5 rounded-full text-[10px] font-orbitron uppercase tracking-wider bg-atomic-orange/20 text-atomic-orange border border-atomic-orange/40"></span>
+                        <span id="mBadgeYear" class="px-2.5 py-0.5 rounded-full text-[10px] font-orbitron uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700"></span>
+                        <span id="mBadgeRating" class="px-2.5 py-0.5 rounded-full text-[10px] font-orbitron uppercase tracking-wider bg-atomic-yellow/20 text-atomic-yellow border border-atomic-yellow/40"></span>
+                    </div>
+                    <h2 id="mTitle" class="font-orbitron text-xl sm:text-3xl font-bold text-white"></h2>
+                    <p id="mJpTitle" class="font-orbitron text-xs text-atomic-green mt-0.5 tracking-widest"></p>
+                </div>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto space-y-5 flex-grow text-xs sm:text-sm">
+                <!-- Specs Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-atomic-bg p-4 rounded-xl border border-atomic-border font-orbitron">
+                    <div><span class="text-slate-500">RÉALISATEUR :</span> <span id="mDirector" class="text-slate-200"></span></div>
+                    <div><span class="text-slate-500">STUDIO / DIFFUSION :</span> <span id="mStudio" class="text-slate-200"></span></div>
+                    <div><span class="text-slate-500">COMPOSITEUR :</span> <span id="mComposer" class="text-atomic-green"></span></div>
+                    <div><span class="text-slate-500">DISPONIBILITÉ :</span> <span id="mLanguage" class="text-atomic-orange"></span></div>
+                </div>
+
+                <!-- Synopsis -->
+                <div>
+                    <h4 class="font-orbitron text-xs text-atomic-green uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-align-left"></i> Synopsis & Contexte Historique
+                    </h4>
+                    <p id="mDescription" class="text-slate-300 leading-relaxed"></p>
+                </div>
+
+                <!-- Monsters -->
+                <div>
+                    <h4 class="font-orbitron text-xs text-atomic-orange uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-dragon"></i> Monstres & Titans Présents
+                    </h4>
+                    <div id="mMonsters" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <!-- Trivia -->
+                <div class="bg-atomic-card border border-atomic-border p-4 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-atomic-orange"></div>
+                    <h4 class="font-orbitron text-xs text-atomic-orange uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-lightbulb"></i> Anecdotes, Fuji TV & Secrets de Tournage
+                    </h4>
+                    <p id="mTrivia" class="text-slate-300 text-xs leading-relaxed"></p>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div class="p-4 bg-atomic-bg border-t border-atomic-border flex justify-end">
+                <button onclick="closeModal()" class="px-5 py-2 rounded-xl bg-atomic-card hover:bg-atomic-green hover:text-black text-slate-200 font-orbitron text-xs tracking-wider transition-all border border-atomic-border">
+                    FERMER
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Hardcoded Database sorted chronologically (1954 to 2026) -->
+    <script>
+        const kaijuDatabase = [
+            // --- 1954 ---
+            {
+                id: "f-1954-godzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa (1954)",
+                langType: "vf",
+                title: "Godzilla",
+                jpTitle: "ゴジラ (Gojira)",
+                year: 1954,
+                yearLabel: "1954",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "9.8/10",
+                monsters: ["Godzilla"],
+                description: "Le chef-d'œuvre fondateur du film de monstres géants (Tokusatsu). Réveillé par des essais thermonucléaires dans le Pacifique, Godzilla rase Tokyo.",
+                trivia: "Créé par Ishirō Honda et Eiji Tsuburaya. Le costume pesait 100 kg. Akira Ifukube a conçu le rugissement légendaire en frottant un gant en cuir sur des cordes de contrebasse."
+            },
+            // --- 1955 ---
+            {
+                id: "f-1955-godzilla-raids-again",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Le Retour de Godzilla (Godzilla Raids Again)",
+                jpTitle: "ゴジラの逆襲 (Gojira no Gyakushū)",
+                year: 1955,
+                yearLabel: "1955",
+                director: "Motoyoshi Oda",
+                composer: "Masaru Sato",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "7.0/10",
+                monsters: ["Godzilla", "Anguirus"],
+                description: "Deuxième film de la saga. Un second Godzilla émerge et s'affronte à Osaka contre le dinosaure épineux Anguirus dans le tout premier combat Kaiju vs Kaiju.",
+                trivia: "Premier affrontement entre deux monstres géants. Le combat fut accidentellement tourné en manivelle rapide, créant un style de combat nerveux et effrayant."
+            },
+            // --- 1956 ---
+            {
+                id: "f-1956-rodan",
+                type: "film",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "Rodan (Radon, le monstre des profondeurs)",
+                jpTitle: "空の大怪獣 ラドン (Sora no Daikaijū Radon)",
+                year: 1956,
+                yearLabel: "1956",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "7.8/10",
+                monsters: ["Rodan", "Meganulon"],
+                description: "Premier film Toho Kaiju en couleurs Technicolor. Des ptéranodons géants mutants s'éveillent sous une mine et franchissent le mur du son au-dessus de Fukuoka.",
+                trivia: "Le cri strident de Rodan réutilise en partie le rugissement de Godzilla accéléré."
+            },
+            // --- 1957 ---
+            {
+                id: "f-1957-mysterians",
+                type: "film",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Prisonnières des Martiens (The Mysterians)",
+                jpTitle: "地球防衛軍 (Chikyū Bōeigun)",
+                year: 1957,
+                yearLabel: "1957",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "7.4/10",
+                monsters: ["Moguera", "Mysterians"],
+                description: "Des extraterrestres construisent une citadelle au Japon et lâchent le robot géant foreur Moguera pour soumettre la planète.",
+                trivia: "Première apparition du robot Moguera réutilisé dans Godzilla vs SpaceGodzilla (1994)."
+            },
+            // --- 1958 ---
+            {
+                id: "f-1958-varan",
+                type: "film",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Varan le monstre géant",
+                jpTitle: "大怪獣バラン (Daikaijū Baran)",
+                year: 1958,
+                yearLabel: "1958",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "6.5/10",
+                monsters: ["Varan"],
+                description: "Un reptile volant préhistorique vénéré comme une divinité de montagne par un village isolé s'attaque à la ville de Tokyo.",
+                trivia: "Varan réapparaîtra dans la grande bataille de Destroy All Monsters (1968)."
+            },
+            // --- 1961 ---
+            {
+                id: "f-1961-mothra",
+                type: "film",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "Mothra",
+                jpTitle: "モスラ (Mosura)",
+                year: 1961,
+                yearLabel: "1961",
+                director: "Ishirō Honda",
+                composer: "Yuji Koseki",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "8.2/10",
+                monsters: ["Mothra (Larve & Papillon)"],
+                description: "Des aventuriers capturent les fées télépathes (Shobijin) sur Infant Island. Mothra émerge sous forme de larve pour détruire Tokyo et sauver ses gardiennes.",
+                trivia: "Le chant cultissime 'Mosura no Uta' interprété par 'The Peanuts' est entré dans la légende."
+            },
+            // --- 1962 ---
+            {
+                id: "f-1962-king-kong-vs-godzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "King Kong contre Godzilla",
+                jpTitle: "キングコング対ゴジラ (Kingu Kongu tai Gojira)",
+                year: 1962,
+                yearLabel: "1962",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho / Universal",
+                language: "VF / VOSTFR",
+                rating: "7.8/10",
+                monsters: ["Godzilla", "King Kong"],
+                description: "Choc des titans en couleurs Technicolor. Un magnat de la pharmacie emmène King Kong au Japon pour affronter Godzilla.",
+                trivia: "Premier film Godzilla en couleur. Record historique d'entrées au Japon pour un Godzilla (12,5 millions de spectateurs)."
+            },
+            // --- 1963 ---
+            {
+                id: "f-1963-atragon",
+                type: "film",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Atragon (Kaitei Gunkan)",
+                jpTitle: "海底軍艦",
+                year: 1963,
+                yearLabel: "1963",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "7.3/10",
+                monsters: ["Manda", "Sous-marin Gotengo"],
+                description: "L'empire sous-marin Mu menace la surface. Le sous-marin foreur et volant Gotengo affronte le dragon protecteur aquatique Manda.",
+                trivia: "Inaugure le sous-marinGotengo réutilisé dans Godzilla Final Wars (2004)."
+            },
+            // --- 1964 ---
+            {
+                id: "f-1964-mothra-vs-godzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "Mothra contre Godzilla",
+                jpTitle: "モスラ対ゴジラ (Mosura tai Gojira)",
+                year: 1964,
+                yearLabel: "1964",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "8.6/10",
+                monsters: ["Godzilla", "Mothra (Adulte & Larves)"],
+                description: "Un œuf géant rejeté sur la côte est racheté par des affairistes. Godzilla surgit de la baie et Mothra se sacrifie pour sauver son œuf.",
+                trivia: "Un des plus grands chefs-d'œuvre de la période Shōwa."
+            },
+            {
+                id: "f-1964-ghidorah",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "Ghidorah, le monstre à trois têtes",
+                jpTitle: "三大怪獣 地球最大の決戦",
+                year: 1964,
+                yearLabel: "1964",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "8.4/10",
+                monsters: ["Godzilla", "Rodan", "Mothra", "King Ghidorah"],
+                description: "King Ghidorah arrive de l'espace. Mothra doit convaincre Godzilla et Rodan d'unir leurs forces pour sauver la Terre.",
+                trivia: "Première apparition historique de King Ghidorah."
+            },
+            // --- 1965 ---
+            {
+                id: "f-1965-gamera",
+                type: "film",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Shōwa / Daiei",
+                langType: "vostfr",
+                title: "Gamera, le monstre géant",
+                jpTitle: "大怪獣ガメラ (Daikaijū Gamera)",
+                year: 1965,
+                yearLabel: "1965",
+                director: "Noriaki Yuasa",
+                composer: "Tadanori Konishi",
+                studio: "Daiei Film",
+                language: "VOSTFR",
+                rating: "7.2/10",
+                monsters: ["Gamera"],
+                description: "Une explosion atomique réveille la tortue géante volante Gamera, rivale légendaire de Godzilla.",
+                trivia: "Grand début de la franchise Daiei."
+            },
+            {
+                id: "f-1965-monster-zero",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Invasion Planète X (Monster Zero)",
+                jpTitle: "怪獣大戦争 (Kaijū Daisensō)",
+                year: 1965,
+                yearLabel: "1965",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "7.6/10",
+                monsters: ["Godzilla", "Rodan", "King Ghidorah"],
+                description: "Les Xiliens empruntent Godzilla et Rodan pour combattre Ghidorah sur la Planète X avant de tenter d'asservir la Terre.",
+                trivia: "Scène culte de la danse de victoire 'Shē' de Godzilla."
+            },
+            // --- 1966 ---
+            {
+                id: "s-1966-ultraman",
+                type: "series",
+                subCat: "kaiju",
+                era: "showa",
+                eraLabel: "Tsuburaya Classic",
+                langType: "vf",
+                title: "Ultraman (Série Fondatrice)",
+                jpTitle: "ウルトラマン",
+                year: 1966,
+                yearLabel: "1966-1967",
+                director: "Eiji Tsuburaya",
+                composer: "Kunio Miyauchi",
+                studio: "Tsuburaya Productions / TBS",
+                language: "VF / VOSTFR",
+                rating: "9.0/10",
+                monsters: ["Ultraman", "Alien Baltan", "Gomora", "Red King"],
+                description: "Série télévisée culte. Un agent fusionne avec un géant de lumière pour repousser les monstres en 3 minutes de combat.",
+                trivia: "A révolutionné le Tokusatsu à la télévision."
+            },
+            {
+                id: "f-1966-ebirah",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Ebirah, Horror of the Deep",
+                jpTitle: "ゴジラ・エビラ・モスラ 南海の大決闘",
+                year: 1966,
+                yearLabel: "1966",
+                director: "Jun Fukuda",
+                composer: "Masaru Sato",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "6.9/10",
+                monsters: ["Godzilla", "Ebirah", "Mothra"],
+                description: "Des naufragés réveillent Godzilla sur une île pour détruire la crevette géante Ebirah et le syndicat armé du Bambou Rouge.",
+                trivia: "Prévu à l'origine pour King Kong."
+            },
+            // --- 1968 ---
+            {
+                id: "f-1968-destroy-all-monsters",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "Les envahisseurs attaquent (Destroy All Monsters)",
+                jpTitle: "怪獣総進撃",
+                year: 1968,
+                yearLabel: "1968",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "8.8/10",
+                monsters: ["Godzilla", "Rodan", "Mothra", "King Ghidorah", "Anguirus", "Gorosaurus", "Manda", "Minilla", "Baragon"],
+                description: "En l'an 1999, 11 monstres de Monsterland sont contrôlés par les aliens Kilaaks pour ravager la planète.",
+                trivia: "Rassemblement épique de tous les monstres Toho au pied du Mont Fuji."
+            },
+            // --- 1971 ---
+            {
+                id: "f-1971-godzilla-vs-hedorah",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Godzilla vs. Hedorah",
+                jpTitle: "ゴジラ対ヘドラ",
+                year: 1971,
+                yearLabel: "1971",
+                director: "Yoshimitsu Banno",
+                composer: "Riichiro Manabe",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "7.9/10",
+                monsters: ["Godzilla", "Hedorah"],
+                description: "Godzilla combat la monstrueuse masse toxique Hedorah née des pollutions chimiques industrielles.",
+                trivia: "Unique film où Godzilla s'envole grâce au recul de son souffle atomique."
+            },
+            // --- 1973 ---
+            {
+                id: "s-1973-zone-fighter",
+                type: "series",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa TV Tokusatsu",
+                langType: "vo",
+                title: "Zone Fighter (Ryūsei Ningen Zōn)",
+                jpTitle: "流星人間ゾーン",
+                year: 1973,
+                yearLabel: "1973",
+                director: "Ishirō Honda",
+                composer: "Goro Oshi",
+                studio: "Toho / Fuji TV",
+                language: "VO Japonaise (Inédit VF)",
+                rating: "7.3/10",
+                monsters: ["Zone Fighter", "Godzilla", "Gigan", "King Ghidorah"],
+                description: "Série TV produite avec Fuji TV où Godzilla apparaît personnellement dans 5 épisodes pour prêter main-forte au héros géant.",
+                trivia: "Collaboration officielle emblématique entre Toho et Fuji TV."
+            },
+            // --- 1974 ---
+            {
+                id: "f-1974-mechagodzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vf",
+                title: "Godzilla vs. Mechagodzilla",
+                jpTitle: "ゴジラ対メカゴジラ",
+                year: 1974,
+                yearLabel: "1974",
+                director: "Jun Fukuda",
+                composer: "Masaru Sato",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "8.2/10",
+                monsters: ["Godzilla", "Mechagodzilla", "King Caesar"],
+                description: "Le premier Mechagodzilla en acier de l'espace déferle sur le Japon. King Caesar s'éveille pour épauler Godzilla.",
+                trivia: "Introduction du rival mécanique le plus célèbre de la franchise."
+            },
+            // --- 1975 ---
+            {
+                id: "f-1975-terror-of-mechagodzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Shōwa",
+                langType: "vostfr",
+                title: "Les Monstres du continent perdu (Terror of Mechagodzilla)",
+                jpTitle: "メカゴジラの逆襲",
+                year: 1975,
+                yearLabel: "1975",
+                director: "Ishirō Honda",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "7.6/10",
+                monsters: ["Godzilla", "Mechagodzilla 2", "Titanosaurus"],
+                description: "Dernier film de l'ère Shōwa. Un savant banni reconstruit Mechagodzilla et s'allie au titan aquatique Titanosaurus.",
+                trivia: "Dernier Godzilla réalisé par le maître Ishirō Honda."
+            },
+            // --- 1983 / 2012 ---
+            {
+                id: "f-1983-wolfman-vs-godzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "showa",
+                eraLabel: "Fan-Film Légendaire",
+                langType: "vo",
+                title: "Wolfman vs. Godzilla (Legendary Fan-Film)",
+                jpTitle: "伝説の自主制作映画 ゴジラ対狼男",
+                year: 1983,
+                yearLabel: "1983 / 2012",
+                director: "Shizuo Nakajima",
+                composer: "Fan Made",
+                studio: "Production Indépendante (Ex-Anciens de Toho)",
+                language: "VO Japonaise (Inédit)",
+                rating: "8.5/10",
+                monsters: ["Godzilla (Style 1962)", "Wolfman Géant"],
+                description: "Projet légendaire indépendant tourné en 35mm par d'anciens techniciens de la Toho mettant en scène un loup-garou géant mutant contre Godzilla.",
+                trivia: "Le film culte le plus rare de l'histoire du Tokusatsu."
+            },
+            // --- 1984 ---
+            {
+                id: "f-1984-return-of-godzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "heisei",
+                eraLabel: "Heisei",
+                langType: "vf",
+                title: "Le Retour de Godzilla (1984)",
+                jpTitle: "ゴジラ (1984)",
+                year: 1984,
+                yearLabel: "1984",
+                director: "Koji Hashimoto",
+                composer: "Reijiro Koroku",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "7.9/10",
+                monsters: ["Godzilla"],
+                description: "Lancement de l'ère Heisei. Reboot ignorant la suite de 1954. Godzilla réapparaît plus massif (80 mètres) en pleine Guerre Froide.",
+                trivia: "Utilisation du robot géant 'Cybot Godzilla' de 5 mètres."
+            },
+            // --- 1989 ---
+            {
+                id: "f-1989-godzilla-vs-biollante",
+                type: "film",
+                subCat: "godzilla",
+                era: "heisei",
+                eraLabel: "Heisei",
+                langType: "vostfr",
+                title: "Godzilla vs. Biollante",
+                jpTitle: "ゴジラvsビオランテ",
+                year: 1989,
+                yearLabel: "1989",
+                director: "Kazuki Omori",
+                composer: "Koichi Sugiyama",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "8.7/10",
+                monsters: ["Godzilla", "Biollante"],
+                description: "Des cellules de Godzilla fusionnées à des cellules végétales et humaines créent la monstrueuse plante carnivore géante Biollante.",
+                trivia: "Histoire imaginée par un dentiste japonais vainqueur d'un concours Toho."
+            },
+            // --- 1991 ---
+            {
+                id: "f-1991-godzilla-vs-king-ghidorah",
+                type: "film",
+                subCat: "godzilla",
+                era: "heisei",
+                eraLabel: "Heisei",
+                langType: "vostfr",
+                title: "Godzilla vs. King Ghidorah",
+                jpTitle: "ゴジラvsキングギドラ",
+                year: 1991,
+                yearLabel: "1991",
+                director: "Kazuki Omori",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "8.1/10",
+                monsters: ["Godzilla", "King Ghidorah", "Mecha-King Ghidorah"],
+                description: "Des voyageurs temporels modifient le passé pour effacer Godzilla et engendrer King Ghidorah à sa place.",
+                trivia: "Introduction de Mecha-King Ghidorah."
+            },
+            // --- 1992-1993 FUJI TV ---
+            {
+                id: "s-1992-godzilland",
+                type: "series",
+                subCat: "godzilla",
+                era: "heisei",
+                eraLabel: "Fuji TV Exclusive",
+                langType: "vo",
+                title: "Adventure! Godzilland (Fuji TV)",
+                jpTitle: "冒険！ゴジランド",
+                year: 1992,
+                yearLabel: "1992-1993",
+                director: "Fuji TV Crew",
+                composer: "Toho Sound",
+                studio: "Toho / Fuji TV",
+                language: "VO Japonaise (Inédit)",
+                rating: "7.0/10",
+                monsters: ["Godzilla Chibi", "Mothra Chibi", "Mechagodzilla Chibi"],
+                description: "Émission jeunesse culte diffusée sur Fuji TV mêlant séquences éducatives, marionnettes et dessins animés Chibi Godzilla.",
+                trivia: "Émission promo Fuji TV extrêmement rare."
+            },
+            // --- 1995 ---
+            {
+                id: "f-1995-godzilla-vs-destoroyah",
+                type: "film",
+                subCat: "godzilla",
+                era: "heisei",
+                eraLabel: "Heisei",
+                langType: "vostfr",
+                title: "Godzilla vs. Destoroyah",
+                jpTitle: "ゴジラvsデストロイア",
+                year: 1995,
+                yearLabel: "1995",
+                director: "Takao Okawara",
+                composer: "Akira Ifukube",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "9.3/10",
+                monsters: ["Godzilla (Burning)", "Destoroyah", "Godzilla Junior"],
+                description: "Godzilla entre en fusion nucléaire (Burning Godzilla). Au même moment, le Destructeur d'Oxygène de 1954 engendre la créature démoniaque Destoroyah.",
+                trivia: "Mort mythique et poignante de Godzilla marquant la fin de l'ère Heisei."
+            },
+            {
+                id: "f-1995-gamera-1",
+                type: "film",
+                subCat: "kaiju",
+                era: "heisei",
+                eraLabel: "Gamera Trilogy",
+                langType: "vf",
+                title: "Gamera: Guardian of the Universe",
+                jpTitle: "ガメラ 大怪獣空中決戦",
+                year: 1995,
+                yearLabel: "1995",
+                director: "Shusuke Kaneko",
+                composer: "Kow Otani",
+                studio: "Daiei Film",
+                language: "VF / VOSTFR",
+                rating: "8.9/10",
+                monsters: ["Gamera", "Gyaos"],
+                description: "Premier volet de la trilogie chef-d'œuvre de Gamera. La tortue géante s'éveille pour exterminer les rapaces géants Gyaos.",
+                trivia: "Révolution des effets spéciaux Tokusatsu au milieu des années 90."
+            },
+            // --- 1997-1998 FUJI TV ---
+            {
+                id: "s-1997-godzilla-island",
+                type: "series",
+                subCat: "godzilla",
+                era: "heisei",
+                eraLabel: "Fuji TV Exclusive",
+                langType: "vo",
+                title: "Godzilla Island (Fuji TV Series)",
+                jpTitle: "ゴジラアイランド",
+                year: 1997,
+                yearLabel: "1997-1998",
+                director: "Toshio Takano",
+                composer: "Goro Oshi",
+                studio: "Toho / Fuji TV",
+                language: "VO Japonaise (Inédit)",
+                rating: "6.8/10",
+                monsters: ["Godzilla", "Mothra", "Rodan", "King Ghidorah", "Mechagodzilla"],
+                description: "Série télévisée matinale culte sur Fuji TV (256 épisodes de 3 min) mettant en scène des figurines articulées officielles Toho.",
+                trivia: "Inédit total hors du Japon."
+            },
+            // --- 1999 ---
+            {
+                id: "f-1999-gamera-3",
+                type: "film",
+                subCat: "kaiju",
+                era: "heisei",
+                eraLabel: "Gamera Trilogy",
+                langType: "vostfr",
+                title: "Gamera 3: Revenge of Iris",
+                jpTitle: "ガメラ3 邪神覚醒",
+                year: 1999,
+                yearLabel: "1999",
+                director: "Shusuke Kaneko",
+                composer: "Kow Otani",
+                studio: "Daiei Film",
+                language: "VOSTFR",
+                rating: "9.4/10",
+                monsters: ["Gamera", "Iris", "Hyper Gyaos"],
+                description: "Une jeune fille élève le titan tentaculaire Iris pour se venger de Gamera. Sommet absolu du film de Kaiju.",
+                trivia: "L'un des films de monstres les plus acclamés du cinéma mondial."
+            },
+            {
+                id: "f-1999-godzilla-2000",
+                type: "film",
+                subCat: "godzilla",
+                era: "millennium",
+                eraLabel: "Millennium",
+                langType: "vf",
+                title: "Godzilla 2000: Millennium",
+                jpTitle: "ゴジラ2000 ミレニアム",
+                year: 1999,
+                yearLabel: "1999",
+                director: "Takao Okawara",
+                composer: "Takayuki Hattori",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "7.4/10",
+                monsters: ["Godzilla", "Orga"],
+                description: "Lancement de la saga Millennium. Godzilla affronte le monstre extraterrestre Orga cherchant à lui dérober son ADN régénérateur (Organicon-G).",
+                trivia: "Look inédit aux dorsales violettes acérées."
+            },
+            // --- 2001 ---
+            {
+                id: "f-2001-gmk",
+                type: "film",
+                subCat: "godzilla",
+                era: "millennium",
+                eraLabel: "Millennium",
+                langType: "vostfr",
+                title: "GMK: Giant Monsters All-Out Attack",
+                jpTitle: "ゴジラ・モスラ・キングギドラ 大怪獣総攻撃",
+                year: 2001,
+                yearLabel: "2001",
+                director: "Shusuke Kaneko",
+                composer: "Kow Otani",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "9.1/10",
+                monsters: ["Godzilla (Possédé)", "King Ghidorah", "Mothra", "Baragon"],
+                description: "Godzilla est un monstre démoniaque possédé par les âmes de la Guerre du Pacifique. Les monstres gardiens s'unissent pour sauver le Japon.",
+                trivia: "Seul film où King Ghidorah est un gardien protecteur de la Terre."
+            },
+            // --- 2002 ---
+            {
+                id: "f-2002-against-mechagodzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "millennium",
+                eraLabel: "Millennium",
+                langType: "vostfr",
+                title: "Godzilla Against Mechagodzilla",
+                jpTitle: "ゴジラ×メカゴジラ",
+                year: 2002,
+                yearLabel: "2002",
+                director: "Masaaki Tezuka",
+                composer: "Michiru Oshima",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "8.0/10",
+                monsters: ["Godzilla", "Kiryu (Mechagodzilla)"],
+                description: "Construction du bio-robot Kiryu sur l'ossature du tout premier Godzilla de 1954.",
+                trivia: "Kiryu conserve la mémoire cellulaire du Godzilla original."
+            },
+            // --- 2004 ---
+            {
+                id: "f-2004-final-wars",
+                type: "film",
+                subCat: "godzilla",
+                era: "millennium",
+                eraLabel: "Millennium 50th",
+                langType: "vostfr",
+                title: "Godzilla: Final Wars",
+                jpTitle: "ゴジラ ファイナルウォーズ",
+                year: 2004,
+                yearLabel: "2004",
+                director: "Ryuhei Kitamura",
+                composer: "Keith Emerson",
+                studio: "Toho",
+                language: "VOSTFR",
+                rating: "8.3/10",
+                monsters: ["Godzilla", "Keizer Ghidorah", "Gigan", "Zilla", "Hedorah", "Rodan", "Mothra", "Ebirah", "Anguirus"],
+                description: "Film des 50 ans. Godzilla combat aux quatre coins du globe une armée de monstres déchaînés par les envahisseurs Xiliens.",
+                trivia: "Godzilla y détruit le Zilla américain de 1998 en 15 secondes à Sydney."
+            },
+            // --- 2013 ---
+            {
+                id: "f-2013-pacific-rim",
+                type: "film",
+                subCat: "kaiju",
+                era: "reiwa",
+                eraLabel: "Moderne US",
+                langType: "vf",
+                title: "Pacific Rim",
+                jpTitle: "パシフィック・リム",
+                year: 2013,
+                yearLabel: "2013",
+                director: "Guillermo del Toro",
+                composer: "Ramin Djawadi",
+                studio: "Legendary / Warner Bros.",
+                language: "VF / VOSTFR",
+                rating: "8.6/10",
+                monsters: ["Jaegers (Gipsy Danger)", "Kaijus (Otachi, Slattern)"],
+                description: "Hommage de Guillermo del Toro. Des robots colossaux Jaegers s'opposent aux Kaijus émergeant d'une faille au fond du Pacifique.",
+                trivia: "A démocratisé la culture Kaiju à l'échelle mondiale."
+            },
+            // --- 2014 ---
+            {
+                id: "f-2014-godzilla-mv",
+                type: "film",
+                subCat: "godzilla",
+                era: "monsterverse",
+                eraLabel: "MonsterVerse US",
+                langType: "vf",
+                title: "Godzilla (2014)",
+                jpTitle: "GODZILLA ゴジラ",
+                year: 2014,
+                yearLabel: "2014",
+                director: "Gareth Edwards",
+                composer: "Alexandre Desplat",
+                studio: "Legendary / Warner Bros.",
+                language: "VF / VOSTFR",
+                rating: "7.7/10",
+                monsters: ["Godzilla", "MUTOs"],
+                description: "Lancement du MonsterVerse américain. Godzilla sort de l'océan pour éliminer les parasites géants MUTOs.",
+                trivia: "Mise en scène mémorable à échelle humaine."
+            },
+            // --- 2016 ---
+            {
+                id: "f-2016-shin-godzilla",
+                type: "film",
+                subCat: "godzilla",
+                era: "reiwa",
+                eraLabel: "Reiwa",
+                langType: "vf",
+                title: "Shin Godzilla",
+                jpTitle: "シン・ゴジラ (Shin Gojira)",
+                year: 2016,
+                yearLabel: "2016",
+                director: "Hideaki Anno / Shinji Higuchi",
+                composer: "Shiro Sagisu",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "9.2/10",
+                monsters: ["Shin Godzilla (Formes 1 à 5)"],
+                description: "Satire politique magistrale par Hideaki Anno. Une créature radioactive en permanente mutation évolue et ravage Tokyo.",
+                trivia: "7 Japan Academy Prizes dont Meilleur Film."
+            },
+            // --- 2019 ---
+            {
+                id: "f-2019-king-of-the-monsters",
+                type: "film",
+                subCat: "godzilla",
+                era: "monsterverse",
+                eraLabel: "MonsterVerse US",
+                langType: "vf",
+                title: "Godzilla II: Roi des Monstres",
+                jpTitle: "ゴジラ キング・オブ・モンスターズ",
+                year: 2019,
+                yearLabel: "2019",
+                director: "Michael Dougherty",
+                composer: "Bear McCreary",
+                studio: "Legendary / Warner Bros.",
+                language: "VF / VOSTFR",
+                rating: "8.0/10",
+                monsters: ["Godzilla", "King Ghidorah", "Mothra", "Rodan"],
+                description: "Ghidorah s'éveille et revendique le trône des Titans. Godzilla affirme sa suprématie d'Alpha.",
+                trivia: "Réarrangements orchestraux des thèmes historiques d'Akira Ifukube."
+            },
+            // --- 2021 ---
+            {
+                id: "f-2021-godzilla-vs-kong",
+                type: "film",
+                subCat: "godzilla",
+                era: "monsterverse",
+                eraLabel: "MonsterVerse US",
+                langType: "vf",
+                title: "Godzilla vs. Kong",
+                jpTitle: "ゴジラvsコング",
+                year: 2021,
+                yearLabel: "2021",
+                director: "Adam Wingard",
+                composer: "Junkie XL",
+                studio: "Legendary / Warner Bros.",
+                language: "VF / VOSTFR",
+                rating: "7.7/10",
+                monsters: ["Godzilla", "King Kong", "Mechagodzilla"],
+                description: "Choc ultime entre Godzilla et Kong se concluant par leur alliance contre Mechagodzilla au cœur de Hong Kong.",
+                trivia: "Carton mondial en salles et en streaming pendant la pandémie."
+            },
+            {
+                id: "s-2021-singular-point",
+                type: "series",
+                subCat: "godzilla",
+                era: "reiwa",
+                eraLabel: "Reiwa Anime",
+                langType: "vf",
+                title: "Godzilla Singular Point",
+                jpTitle: "ゴジラ S.P",
+                year: 2021,
+                yearLabel: "2021",
+                director: "Atsushi Takahashi",
+                composer: "Kan Sawada",
+                studio: "Bones / Orange / Netflix",
+                language: "VF / VOSTFR",
+                rating: "8.1/10",
+                monsters: ["Godzilla Ultima", "Jet Jaguar", "Anguirus"],
+                description: "Série d'animation mêlant physique quantique, mondes parallèles et le retour de Jet Jaguar.",
+                trivia: "Le design de Godzilla Ultima est l'un des plus massifs."
+            },
+            // --- 2023 ---
+            {
+                id: "f-2023-godzilla-minus-one",
+                type: "film",
+                subCat: "godzilla",
+                era: "reiwa",
+                eraLabel: "Reiwa / Oscar Winner",
+                langType: "vf",
+                title: "Godzilla Minus One / Minus Color",
+                jpTitle: "ゴジラ-0.1 (Gojira Mainasu Wan)",
+                year: 2023,
+                yearLabel: "2023",
+                director: "Takashi Yamazaki",
+                composer: "Naoki Sato",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "9.8/10",
+                monsters: ["Godzilla (Minus One)"],
+                description: "Dans le Japon ruiné d'après-guerre (tombé à zéro), un pilote kamikaze traumatisé affronte un Godzilla terrifiant.",
+                trivia: "Premier film Godzilla de l'histoire à remporter un Oscar (Meilleurs Effets Visuels 2024)."
+            },
+            {
+                id: "s-2023-monarch",
+                type: "series",
+                subCat: "godzilla",
+                era: "monsterverse",
+                eraLabel: "MonsterVerse TV",
+                langType: "vf",
+                title: "Monarch: Legacy of Monsters",
+                jpTitle: "モナーク: レガシー・オブ・モンスターズ",
+                year: 2023,
+                yearLabel: "2023-2024",
+                director: "Matt Shakman",
+                composer: "Leopold Ross",
+                studio: "Legendary / Apple TV+",
+                language: "VF / VOSTFR",
+                rating: "8.4/10",
+                monsters: ["Godzilla", "Ion Dragon", "Frost Vark"],
+                description: "Série explorant la création clandestine de l'organisation Monarch sur deux époques (1950 et 2015).",
+                trivia: "Kurt Russell et son fils Wyatt Russell incarnent le même personnage jeune et âgé."
+            },
+            // --- 2024 ---
+            {
+                id: "f-2024-godzilla-x-kong",
+                type: "film",
+                subCat: "godzilla",
+                era: "monsterverse",
+                eraLabel: "MonsterVerse US",
+                langType: "vf",
+                title: "Godzilla x Kong: Le Nouvel Empire",
+                jpTitle: "ゴジラxコング 新たなる帝国",
+                year: 2024,
+                yearLabel: "2024",
+                director: "Adam Wingard",
+                composer: "Junkie XL / Antonio Di Iorio",
+                studio: "Legendary / Warner Bros.",
+                language: "VF / VOSTFR",
+                rating: "7.4/10",
+                monsters: ["Godzilla (Rose Évolué)", "Kong", "Skar King", "Shimo"],
+                description: "Godzilla évolue avec des rayonnements atomiques roses pour terrasser le tyran Skar King et la titan Shimo aux côtés de Kong.",
+                trivia: "Succès au box-office mondial de plus de 570 millions $."
+            },
+            // --- 2026 (SORTIE RÉCENTE AU CINÉMA) ---
+            {
+                id: "f-2026-godzilla-minus-zero",
+                type: "film",
+                subCat: "godzilla",
+                era: "reiwa",
+                eraLabel: "Reiwa (Nouveau 2026)",
+                langType: "vf",
+                title: "Godzilla Minus Zero",
+                jpTitle: "ゴジラ-0.0 (Gojira Mainasu Zero)",
+                year: 2026,
+                yearLabel: "2026 (04 Nov 2026)",
+                director: "Takashi Yamazaki",
+                composer: "Naoki Sato",
+                studio: "Toho",
+                language: "VF / VOSTFR",
+                rating: "9.9/10",
+                monsters: ["Godzilla (Minus Zero)"],
+                description: "Sortie au cinéma le 4 Novembre 2026. Suite directe du chef-d'œuvre Minus One. En 1949, la régénération cellulaire de Godzilla s'achève et déclenche une menace atomique sans précédent sur un Japon en reconstruction.",
+                trivia: "Film événement mondial réalisé par Takashi Yamazaki avec le retour de Ryūnosuke Kamiki et Minami Hamabe."
+            }
+        ];
+
+        // State Management
+        let activeMainTab = 'film'; 
+        let activeSubCat = 'all';  
+        let activeEra = 'all';     
+        let activeLang = 'all';    
+        let isAscending = true; // Default Strict Chronological: 1954 -> 2026
+        let currentSearchQuery = '';
+
+        // DOM Elements
+        const cardsGrid = document.getElementById('cardsGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        const resultsCountText = document.getElementById('resultsCountText');
+        const countFilmsHeader = document.getElementById('countFilmsHeader');
+        const countSeriesHeader = document.getElementById('countSeriesHeader');
+        const sortOrderBtn = document.getElementById('sortOrderBtn');
+        const sortIcon = document.getElementById('sortIcon');
+        const sortText = document.getElementById('sortText');
+
+        const tabFilmsBtn = document.getElementById('tabFilmsBtn');
+        const tabSeriesBtn = document.getElementById('tabSeriesBtn');
+        const subBtnAll = document.getElementById('subBtnAll');
+        const subBtnGodzilla = document.getElementById('subBtnGodzilla');
+        const subBtnKaiju = document.getElementById('subBtnKaiju');
+        const eraBtns = document.querySelectorAll('.era-filter-btn');
+        const langBtns = document.querySelectorAll('.lang-filter-btn');
+
+        // Modal Elements
+        const detailModal = document.getElementById('detailModal');
+        const modalContent = document.getElementById('modalContent');
+        const mTitle = document.getElementById('mTitle');
+        const mJpTitle = document.getElementById('mJpTitle');
+        const mBadgeCategory = document.getElementById('mBadgeCategory');
+        const mBadgeEra = document.getElementById('mBadgeEra');
+        const mBadgeYear = document.getElementById('mBadgeYear');
+        const mBadgeRating = document.getElementById('mBadgeRating');
+        const mDirector = document.getElementById('mDirector');
+        const mStudio = document.getElementById('mStudio');
+        const mComposer = document.getElementById('mComposer');
+        const mLanguage = document.getElementById('mLanguage');
+        const mDescription = document.getElementById('mDescription');
+        const mMonsters = document.getElementById('mMonsters');
+        const mTrivia = document.getElementById('mTrivia');
+
+        // Update Header Counts
+        function updateHeaderCounts() {
+            countFilmsHeader.textContent = kaijuDatabase.filter(i => i.type === 'film').length;
+            countSeriesHeader.textContent = kaijuDatabase.filter(i => i.type === 'series').length;
+        }
+
+        window.setActiveMainTab = function(tab) {
+            activeMainTab = tab;
+            if (tab === 'film') {
+                tabFilmsBtn.className = "px-6 sm:px-10 py-3 rounded-xl font-orbitron text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 bg-atomic-green text-black shadow-atomic-glow flex items-center gap-2";
+                tabSeriesBtn.className = "px-6 sm:px-10 py-3 rounded-xl font-orbitron text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 text-slate-400 hover:text-slate-200 flex items-center gap-2";
+            } else {
+                tabSeriesBtn.className = "px-6 sm:px-10 py-3 rounded-xl font-orbitron text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 bg-atomic-orange text-black shadow-magma-glow flex items-center gap-2";
+                tabFilmsBtn.className = "px-6 sm:px-10 py-3 rounded-xl font-orbitron text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 text-slate-400 hover:text-slate-200 flex items-center gap-2";
+            }
+            renderGrid();
+        };
+
+        window.setSubCat = function(sub) {
+            activeSubCat = sub;
+            [subBtnAll, subBtnGodzilla, subBtnKaiju].forEach(b => {
+                b.className = "flex-1 py-2 px-1.5 rounded-lg text-xs font-orbitron transition-all text-slate-400 hover:text-white";
+            });
+            const activeBtn = sub === 'all' ? subBtnAll : (sub === 'godzilla' ? subBtnGodzilla : subBtnKaiju);
+            activeBtn.className = "flex-1 py-2 px-1.5 rounded-lg text-xs font-orbitron font-bold transition-all bg-atomic-green text-black shadow-atomic-glow";
+            renderGrid();
+        };
+
+        window.toggleSortOrder = function() {
+            isAscending = !isAscending;
+            if (isAscending) {
+                sortIcon.className = "fa-solid fa-arrow-down-1-9";
+                sortText.textContent = "1954 → 2026";
+            } else {
+                sortIcon.className = "fa-solid fa-arrow-up-9-1";
+                sortText.textContent = "2026 → 1954";
+            }
+            renderGrid();
+        };
+
+        function renderGrid() {
+            const query = currentSearchQuery.toLowerCase().trim();
+
+            let filteredData = kaijuDatabase.filter(item => {
+                const matchTab = item.type === activeMainTab;
+                const matchSub = activeSubCat === 'all' || item.subCat === activeSubCat;
+                const matchEra = activeEra === 'all' || item.era === activeEra;
+                const matchLang = activeLang === 'all' || item.langType === activeLang;
+
+                if (!query) return matchTab && matchSub && matchEra && matchLang;
+
+                const matchTitle = item.title.toLowerCase().includes(query) || item.jpTitle.toLowerCase().includes(query);
+                const matchYear = item.yearLabel.toLowerCase().includes(query);
+                const matchDirector = item.director.toLowerCase().includes(query);
+                const matchComposer = item.composer.toLowerCase().includes(query);
+                const matchStudio = item.studio.toLowerCase().includes(query);
+                const matchMonsters = item.monsters.some(m => m.toLowerCase().includes(query));
+
+                return matchTab && matchSub && matchEra && matchLang && (matchTitle || matchYear || matchDirector || matchComposer || matchStudio || matchMonsters);
+            });
+
+            // Sort Chronologically
+            filteredData.sort((a, b) => isAscending ? a.year - b.year : b.year - a.year);
+
+            resultsCountText.textContent = filteredData.length;
+
+            if (filteredData.length === 0) {
+                cardsGrid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            cardsGrid.innerHTML = filteredData.map(item => {
+                const truncatedDesc = item.description.length > 115 ? item.description.substring(0, 115) + '...' : item.description;
+                const isNew2026 = item.year === 2026;
+
+                return `
+                    <div class="atomic-card-style rounded-2xl p-5 flex flex-col justify-between group rumble-hover relative ${isNew2026 ? 'border-atomic-green shadow-atomic-glow' : ''}">
+                        ${isNew2026 ? '<div class="absolute -top-3 -right-3 bg-atomic-green text-black font-orbitron text-[9px] font-black px-3 py-1 rounded-full shadow-atomic-glow uppercase tracking-wider z-20 animate-bounce"><i class="fa-solid fa-fire mr-1"></i>Cinéma Nov 2026</div>' : ''}
+                        <div>
+                            <!-- Header Badges -->
+                            <div class="flex items-center justify-between mb-3 gap-2 flex-wrap">
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-orbitron uppercase tracking-wider bg-atomic-green/10 text-atomic-green border border-atomic-green/30">
+                                    ${item.eraLabel}
+                                </span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-orbitron bg-atomic-bg text-atomic-green border border-atomic-green/40 font-bold shadow-atomic-glow">
+                                        <i class="fa-solid fa-clock mr-1"></i>${item.yearLabel}
+                                    </span>
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-orbitron bg-atomic-yellow/10 text-atomic-yellow border border-atomic-yellow/30 font-bold">
+                                        <i class="fa-solid fa-star mr-1"></i>${item.rating}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Titles -->
+                            <h3 class="font-orbitron text-base font-bold text-white group-hover:text-atomic-green transition-colors mb-0.5">
+                                ${item.title}
+                            </h3>
+                            <p class="font-orbitron text-[11px] text-slate-500 mb-3">${item.jpTitle}</p>
+
+                            <!-- Specs -->
+                            <div class="text-xs text-slate-400 font-orbitron mb-3 space-y-1">
+                                <div><i class="fa-solid fa-clapperboard text-atomic-green mr-1.5"></i>${item.director}</div>
+                                <div><i class="fa-solid fa-building text-atomic-orange mr-1.5"></i>${item.studio} &bull; <span class="text-atomic-green">${item.composer}</span></div>
+                            </div>
+
+                            <!-- Synopsis -->
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                ${truncatedDesc}
+                            </p>
+                        </div>
+
+                        <div>
+                            <!-- Availability Tag -->
+                            <div class="mb-3">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-orbitron bg-atomic-panel text-atomic-orange border border-atomic-orange/30">
+                                    <i class="fa-solid fa-language mr-1"></i>${item.language}
+                                </span>
+                            </div>
+
+                            <!-- Monsters Tags -->
+                            <div class="mb-4 flex flex-wrap gap-1.5">
+                                ${item.monsters.map(m => `
+                                    <span class="px-2 py-0.5 rounded text-[10px] bg-atomic-bg text-slate-300 border border-atomic-border">
+                                        <i class="fa-solid fa-dragon text-atomic-green text-[9px] mr-1"></i>${m}
+                                    </span>
+                                `).join('')}
+                            </div>
+
+                            <!-- Action Button -->
+                            <button onclick="openModal('${item.id}')" class="w-full py-2.5 px-3 rounded-xl bg-atomic-card hover:bg-atomic-green hover:text-black text-atomic-green font-orbitron text-xs tracking-wider transition-all duration-300 flex items-center justify-center gap-2 border border-atomic-border group-hover:border-atomic-green">
+                                <i class="fa-solid fa-folder-open"></i> DÉTAILS CHRONOLOGIQUES
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.openModal = function(id) {
+            const item = kaijuDatabase.find(i => i.id === id);
+            if (!item) return;
+
+            mTitle.textContent = item.title;
+            mJpTitle.textContent = item.jpTitle;
+            mBadgeCategory.textContent = item.type === 'film' ? 'Film' : 'Série TV';
+            mBadgeEra.textContent = item.eraLabel;
+            mBadgeYear.textContent = `Année : ${item.yearLabel}`;
+            mBadgeRating.innerHTML = `<i class="fa-solid fa-star mr-1"></i> ${item.rating}`;
+            mDirector.textContent = item.director;
+            mStudio.textContent = item.studio;
+            mComposer.textContent = item.composer;
+            mLanguage.textContent = item.language;
+            mDescription.textContent = item.description;
+            mTrivia.textContent = item.trivia;
+
+            mMonsters.innerHTML = item.monsters.map(m => `
+                <span class="px-3 py-1 rounded-lg text-xs font-orbitron bg-atomic-bg text-atomic-green border border-atomic-green/30 flex items-center gap-1.5">
+                    <i class="fa-solid fa-dragon"></i> ${m}
+                </span>
+            `).join('');
+
+            detailModal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeModal = function() {
+            detailModal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            document.body.style.overflow = 'auto';
+        };
+
+        detailModal.addEventListener('click', (e) => {
+            if (e.target === detailModal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Filter Listeners
+        eraBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                eraBtns.forEach(b => {
+                    b.className = "era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:border-atomic-green hover:text-atomic-green";
+                });
+                btn.className = "era-filter-btn px-3 py-1.5 rounded-lg text-xs font-orbitron transition-all bg-atomic-green text-black font-bold shadow-atomic-glow";
+                activeEra = btn.getAttribute('data-era');
+                renderGrid();
+            });
+        });
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                langBtns.forEach(b => {
+                    b.className = "lang-filter-btn px-3 py-1 rounded-md text-[11px] font-orbitron transition-all bg-atomic-bg text-slate-400 border border-atomic-border hover:text-white";
+                });
+                btn.className = "lang-filter-btn px-3 py-1 rounded-md text-[11px] font-orbitron transition-all bg-atomic-orange text-black font-bold shadow-magma-glow";
+                activeLang = btn.getAttribute('data-lang');
+                renderGrid();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            currentSearchQuery = e.target.value;
+            if (currentSearchQuery.length > 0) {
+                clearSearchBtn.classList.remove('hidden');
+            } else {
+                clearSearchBtn.classList.add('hidden');
+            }
+            renderGrid();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            currentSearchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            renderGrid();
+        });
+
+        // Initialize On Load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateHeaderCounts();
+            renderGrid();
+        });
+    </script>
+</body>
+</html>
